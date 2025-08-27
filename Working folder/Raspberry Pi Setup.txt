@@ -1,0 +1,37 @@
+touch screen
+
+// paste into the config.txt file
+// then ctrl x y to save 
+
+max_framebuffer_height=1920
+
+max_usb_current=1
+
+config_hdmi_boost=10
+
+hdmi_group=2
+
+hdmi_force_hotplug=1
+
+hdmi_mode=87
+
+hdmi_timings=1080 1 26 4 50 1920 1 8 2 6 0 0 0 60 0 135580000 3
+
+
+
+// 1 by 1 paste the following
+
+sudo apt-get install xserver-xorg-input-libinput
+
+sudo mkdir /etc/X11/xorg.conf.d
+
+sudo cp /usr/share/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/
+
+sudo nano /etc/X11/xorg.conf.d/40-libinput.conf
+
+
+
+// look for is match touchscreen after type the following indented
+Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1"         90 degree rotation
+Option "CalibrationMatrix" "-1 0 1 0 -1 1 0 0 1" 	180 degree rotation
+Option "CalibrationMatrix" "0 -1 1 1 0 0 0 0 1"		270 degree rotation
